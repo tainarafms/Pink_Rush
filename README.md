@@ -18,7 +18,7 @@ Acelere em PINK RUSH! Um jogo arcade eletrizante desenvolvido em HTML, CSS e Jav
 
 ## Link da Publicação
 O jogo está publicado e acessível através do GitHub Pages:
-*(Insira aqui o link gerado pelo GitHub Pages)*
+(https://tainarafms.github.io/Pink_Rush/)
 
 ---
 
