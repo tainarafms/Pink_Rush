@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: 
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #31103f 100%);
+    background-size: 20px 20px, 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Bungee', cursive;
+    color: white;
+}
+
+.game-container {
+    width: 520px;
+    height: 600px;
+    background: linear-gradient(to bottom, #1b1629, #0f0b1a);
+    border: 3px solid #008CFF;
+    border-radius: 12px;
+    box-shadow: 0 0 35px rgba(0, 140, 255, 0.4), inset 0 0 25px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    position: relative;
+}
+
+.track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.lane {
+    flex: 1;
+    position: relative;
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.15) 50%);
+    background-size: 2px 50px;
+    background-position: right;
+    background-repeat: repeat-y;
+    animation: scrollLane 0.3s linear infinite;
+    animation-play-state: paused;
+}
+
+.lane:last-child {
+    background-image: none;
+}
+
+@keyframes scrollLane {
+    0% { background-position-y: 0px; }
+    100% { background-position-y: 50px; }
+}
+
+#player {
+    width: 64px;
+    height: 64px;
+    background-image: url('imagens/carro-prin.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    filter: drop-shadow(0 0 12px #FF0090);
+    image-rendering: pixelated;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.1s ease-out;
+    z-index: 10;
+}
+
+.obstacle {
+    width: 64px;
+    height: 64px;
+    background-image: url('imagens/carro-ad.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    filter: drop-shadow(0 0 10px #dc2626);
+    image-rendering: pixelated;
+    position: absolute;
+    top: -70px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+#score-board {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 15;
+    font-size: 24px;
+    color: #008CFF;
+    text-shadow: 0 0 10px #008CFF;
+}
+
+.bolt {
+    width: 32px;
+    height: 32px;
+    background-image: url('imagens/raio-azul.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    filter: drop-shadow(0 0 10px #008CFF);
+    image-rendering: pixelated;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+#level-board {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 15;
+    font-size: 20px;
+    color: #FF0090;
+    text-shadow: 0 0 10px #FF0090;
+}
+
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(35, 28, 54, 0.95) 0%, rgba(15, 11, 26, 0.98) 100%);
+    background-size: 16px 16px, 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    text-align: center;
+    padding: 35px;
+}
+
+#start-screen .subtitle,
+#game-over-screen .subtitle {
+    color: #008CFF;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+#start-screen h1,
+#game-over-screen h1 {
+    color: #FF0090;
+    text-shadow: 0 0 25px rgba(255, 0, 144, 0.7);
+    font-size: 48px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+#game-over-screen h1 {
+    font-size: 38px;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background-color: #008CFF;
+    box-shadow: 0 0 10px #008CFF;
+    margin-bottom: 18px;
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 140, 255, 0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    width: 85%;
+    max-width: 380px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.instructions p {
+    color: #cbd5e1;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.instructions p:last-child {
+    margin-bottom: 0;
+}
+
+.instructions span {
+    color: #38bdf8;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+#start-btn {
+    font-family: 'Bungee', cursive;
+    background-color: transparent;
+    color: #008CFF;
+    border: 2px solid #008CFF;
+    padding: 14px 32px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 140, 255, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+#start-btn:hover {
+    background-color: #008CFF;
+    color: white;
+    box-shadow: 0 0 22px #008CFF;
+}
+
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(35, 28, 54, 0.95) 0%, rgba(15, 11, 26, 0.98) 100%);
+    background-size: 16px 16px, 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+    padding: 30px;
+}
+
+#game-over-screen.hidden {
+    display: none;
+}
+
+.game-over-stats {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 140, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-bottom: 18px;
+    width: fit-content;
+    min-width: 220px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.game-over-stats p {
+    color: #cbd5e1;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.game-over-stats span {
+    color: #38bdf8;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+.game-over-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 240px;
+    align-items: center;
+}
+
+#restart-btn, #home-btn {
+    font-family: 'Bungee', cursive;
+    background-color: transparent;
+    color: #008CFF;
+    border: 2px solid #008CFF;
+    padding: 11px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 140, 255, 0.3);
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    text-align: center;
+}
+
+#restart-btn:hover, #home-btn:hover {
+    background-color: #008CFF;
+    color: white;
+    box-shadow: 0 0 22px #008CFF;
+}

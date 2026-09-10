@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINK RUSH</title>
+    <link rel="icon" type="image/png" href="imagens/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&display=swap">
+    <link rel="stylesheet" href="pinkrush.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Tela inicial do jogo -->
+        <div id="start-screen">
+            <div class="subtitle">ARCADE EDITION</div>
+            <h1>PINK RUSH</h1>
+            <div class="divider"></div>
+            
+            <div class="instructions">
+                <p>DESVIE DOS CARROS INIMIGOS</p>
+                <p>COLETE OS RAIOS AZUIS <span>(+100 PTS)</span></p>
+                <p>USE AS SETAS <span>[◄ ►]</span> OU <span>[A / D]</span></p>
+            </div>
+
+            <button id="start-btn">JOGAR</button>
+        </div>
+
+        <div id="score-board">SCORE: <span id="score">0</span></div>
+        <div id="level-board">LEVEL: <span id="level">1</span></div>
+        
+        <!-- Tela de fim de jogo -->
+        <div id="game-over-screen" class="hidden">
+            <div class="subtitle">PARTIDA ENCERRADA</div>
+            <h1>FIM DE JOGO!</h1>
+            <div class="divider"></div>
+            
+            <div class="instructions game-over-stats">
+                <p>PONTUAÇÃO: <span id="final-score">0</span></p>
+                <p>NÍVEL: <span id="final-level">1</span></p>
+            </div>
+
+            <div class="game-over-buttons">
+                <button id="restart-btn">JOGAR NOVAMENTE</button>
+                <button id="home-btn">MENU</button>
+            </div>
+        </div>
+
+        <!-- Estrutura das pistas -->
+        <div class="track">
+            <div class="lane" id="lane-0"></div>
+            <div class="lane" id="lane-1">
+                <div id="player" class="car"></div>
+            </div>
+            <div class="lane" id="lane-2"></div>
+        </div> 
+    </div>
+    
+    <script src="pinkrush.js"></script>
+</body>
+
+</html>
